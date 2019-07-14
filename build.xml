@@ -1,0 +1,26 @@
+<project>
+	<target name="cleanup">
+		<delete dir="bin">
+		</delete>
+		<delete dir="build">
+		</delete>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src/org/tektutor" destdir="build/classes">
+		</javac>
+	</target>
+
+	<target name="jar">
+		<jar destfile="build/HelloWorld.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="org.tektutor.HelloWorld" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run">
+		<java jar="build/HelloWorld.jar" fork="true"></java>
+	</target>
+</project>
